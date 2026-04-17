@@ -12,8 +12,20 @@ public class Parking {
   //YOU -- WHAT IS THE BASE CASE? Recursive Case? 
   //HINT it is similar to the double recursive call we did in class
   public int park(double space){
-     
-    
+     if( space <1)
+      return 0;
+    else {
+        // pick a random position for the BACK of the car
+        double backOfCarPosition = Math.random() * (space - 1);
+
+        // space in front of the car
+        double leftSpace = backOfCarPosition;
+
+        // space behind the car
+        double rightSpace = space - backOfCarPosition - 1;
+
+        return 1 + park(leftSpace) + park(rightSpace);
+    }
 
   }
 
